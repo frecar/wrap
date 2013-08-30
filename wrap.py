@@ -31,6 +31,7 @@ class Wrap:
 
         return result
 
+
 wrap = Wrap()
 
 print wrap.text("word", 6) == "word"
@@ -42,6 +43,22 @@ print wrap.text("wordwordwordword", 4) == "word\nword\nword\nword"
 print wrap.text("wordword wordword", 12) == "wordword\nwordword"
 print wrap.text("tommyerkul", 5) == "tommy\nerkul"
 print wrap.text("dette er en ganske lang tekst som skal deles opp i flere linjer ja",
-          6) == "dette\ner en\nganske\nlang\ntekst\nsom\nskal\ndeles\nopp i\nflere\nlinjer\nja"
+                6) == "dette\ner en\nganske\nlang\ntekst\nsom\nskal\ndeles\nopp i\nflere\nlinjer\nja"
 print wrap.text("litt vanskeligere tekst med noen lange ord", 6) == "litt\nvanske\nligere\ntekst\nmed\nnoen\nlange\nord"
 print wrap.text("jeg synes dette var ganske artig", 15) == "jeg synes dette\nvar ganske\nartig"
+
+"""
+python wrap.py
+
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+True
+"""
