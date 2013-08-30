@@ -10,7 +10,8 @@ class Wrap:
     def _format_rest_text(self, maxCharsPerLine, rest):
         return "\n" + self.text(rest.strip(), maxCharsPerLine)
 
-    def _add_text_to_result(self, current_text, max_columns, rest_text, result):
+    def _add_text_to_result(self, current_text, rest_text, max_columns):
+        result = ""
         if len(rest_text) > 0:
             current_text, rest_text = self._handle_splitting_words(current_text, rest_text)
             result += current_text
@@ -21,13 +22,12 @@ class Wrap:
         return result
 
     def text(self, text, max_columns):
-        result = ""
 
         if max_columns >= len(text):
             return text
 
         current_text, rest_text = text[:max_columns], text[max_columns:]
-        result = self._add_text_to_result(current_text, max_columns, rest_text, result)
+        result = self._add_text_to_result(current_text, rest_text, max_columns)
 
         return result
 
